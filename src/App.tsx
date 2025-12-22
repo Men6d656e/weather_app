@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/layout";
 import { ThemeProvider } from "./context/theme-provider";
 import Dashboard from "./pages/weather-dashboard";
@@ -13,15 +13,26 @@ import {
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      gcTime: 10 * 60 * 1000, // 10 mites
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <ThemeProvider defaultTheme="dark">
           <Layout>
-            {/* <Route path="/" element={<Dashboard/>} /> */}
-            {/* <Route path="/city/:cityName" element={<CityPage/>} /> */}
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/city/:cityName" element={<CityPage />} />
+            </Routes>
           </Layout>
         </ThemeProvider>
       </BrowserRouter>
