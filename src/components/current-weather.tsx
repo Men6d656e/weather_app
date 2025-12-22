@@ -7,6 +7,8 @@ interface CurrentWeatherProps {
   locationName?: GeocodingResponse;
 }
 
+export const formatTemp = (temp: number) => `${Math.round(temp)}°`;
+
 const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
   const {
     weather: [CurrentWeather],
@@ -14,7 +16,6 @@ const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
     wind: { speed },
   } = data;
 
-  const formatTemp = (temp: number) => `${Math.round(temp)}°`;
   return (
     <Card className="overflow-hidden">
       <CardContent className="p-6">
