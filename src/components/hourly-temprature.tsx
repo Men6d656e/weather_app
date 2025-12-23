@@ -9,7 +9,6 @@ import {
   YAxis,
 } from "recharts";
 import { format } from "date-fns";
-import { Divide } from "lucide-react";
 
 interface HourlyTempratureProps {
   data: ForecastData;
@@ -26,7 +25,6 @@ const HourlyTemprature = ({ data }: HourlyTempratureProps) => {
         <CardTitle>Today's Temprature</CardTitle>
       </CardHeader>
       <CardContent>
-        <p>Card Content</p>
         <div className="h-50 w-full">
           <ResponsiveContainer width={"100%"} height={"100%"}>
             <LineChart width={400} height={400} data={chartData}>
@@ -63,7 +61,6 @@ const HourlyTemprature = ({ data }: HourlyTempratureProps) => {
                             <span className="text-[0.70rem] uppercase text-muted-foreground">
                               Feels Like
                             </span>
-                            null
                             <span className="font-bold">
                               {payload[0].value}°
                             </span>
