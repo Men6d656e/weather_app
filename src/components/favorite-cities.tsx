@@ -1,6 +1,5 @@
 import { useFavorite } from "@/hooks/use-favorite";
-import React from "react";
-import { ScrollArea } from "./ui/scroll-area";
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import { useNavigate } from "react-router-dom";
 import { useWeatherQuery } from "@/hooks/use-weather";
 import { Button } from "./ui/button";
@@ -26,7 +25,7 @@ const FavoriteCities = () => {
     <>
       <h1 className="text-xl font-bold tracking-tight">Favorites</h1>
       <ScrollArea className="w-full pb-4">
-        <div className="flex gap-4">
+        <div className="flex gap-4 w-max pb-2">
           {favorites.map((city) => {
             return (
               <FavoriteCityTablet
@@ -37,6 +36,7 @@ const FavoriteCities = () => {
             );
           })}
         </div>
+        <ScrollBar orientation="horizontal" />
       </ScrollArea>
     </>
   );
@@ -54,10 +54,10 @@ function FavoriteCityTablet({
 
   return (
     <div
-      onClick={() => navigate(`/city/${name}?lat=${lat}&lon${lon}`)}
+      onClick={() => navigate(`/city/${name}?lat=${lat}&lon=${lon}`)}
       role="button"
       tabIndex={0}
-      className="relative flex min-w-62.5 cursor-pointer items-center gap-3 rounded-lg border bg-card p-4 pr-8 shadow-sm transition-all hover:shadow-md"
+      className="relative flex min-w-[250px] cursor-pointer items-center gap-3 rounded-lg border bg-card p-4 pr-8 shadow-sm transition-all hover:shadow-md"
     >
       <Button
         onClick={(e) => {

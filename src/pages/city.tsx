@@ -28,7 +28,7 @@ const CityPage = () => {
         <AlertCircle className="h-4 w-4" />
         <AlertTitle>Error</AlertTitle>
         <AlertDescription className="flex flex-col gap-4">
-          Failed to laod weather data. Please try again.I
+          Failed to laod weather data. Please try again.
         </AlertDescription>
       </Alert>
     );

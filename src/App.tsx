@@ -4,13 +4,7 @@ import { ThemeProvider } from "./context/theme-provider";
 import Dashboard from "./pages/weather-dashboard";
 import CityPage from "./pages/city";
 
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "sonner";
 
@@ -35,7 +29,7 @@ const App = () => {
               <Route path="/city/:cityName" element={<CityPage />} />
             </Routes>
           </Layout>
-          <Toaster richColors/>
+          <Toaster richColors />
         </ThemeProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />

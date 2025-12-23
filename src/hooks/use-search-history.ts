@@ -31,7 +31,7 @@ export function useSearchHistory() {
     ) => {
       const newSearch: SearchHistoryItem = {
         ...search,
-        id: `${search.lat}-${search.lon}-${Date.now()}`,
+        id: `${search.lat}-${search.lon}`,
         SearchedAt: Date.now(),
       };
 

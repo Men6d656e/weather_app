@@ -65,7 +65,7 @@ const CitySearch = () => {
           {favorites.length > 0 && (
             <CommandGroup  heading="Favourites">
 
-              {history.map((location) => {
+              {favorites.map((location) => {
                 return (
                   <CommandItem
                     key={location.id}

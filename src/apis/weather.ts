@@ -1,7 +1,7 @@
 import { API_CONFIG } from "./config";
 import type {
   Coordinates,
-  ForstData,
+  ForecastData,
   GeocodingResponse,
   WeatherData,
 } from "./typed";
@@ -29,13 +29,13 @@ class WeatherAPI {
     });
     return this.fetchData<WeatherData>(url);
   }
-  async getForecast({ lat, lon }: Coordinates): Promise<ForstData> {
+  async getForecast({ lat, lon }: Coordinates): Promise<ForecastData> {
     const url = this.createUrl(`${API_CONFIG.BASE_URL}/forecast`, {
       lat: lat.toString(),
       lon: lon.toString(),
       units: API_CONFIG.DEFAULT_PARAMS.units,
     });
-    return this.fetchData<ForstData>(url);
+    return this.fetchData<ForecastData>(url);
   }
   async reverseGeoCode({
     lat,
