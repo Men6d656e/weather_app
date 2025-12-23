@@ -37,11 +37,22 @@ class WeatherAPI {
     });
     return this.fetchData<ForstData>(url);
   }
-  async reverseGeoCode({ lat, lon }: Coordinates): Promise<GeocodingResponse[]> {
+  async reverseGeoCode({
+    lat,
+    lon,
+  }: Coordinates): Promise<GeocodingResponse[]> {
     const url = this.createUrl(`${API_CONFIG.GEO}/reverse`, {
       lat: lat.toString(),
       lon: lon.toString(),
       limit: 1,
+    });
+    return this.fetchData<GeocodingResponse[]>(url);
+  }
+
+  async searchLocations(query: string): Promise<GeocodingResponse[]> {
+    const url = this.createUrl(`${API_CONFIG.GEO}/direct`, {
+      q: query,
+      limit: 5,
     });
     return this.fetchData<GeocodingResponse[]>(url);
   }
